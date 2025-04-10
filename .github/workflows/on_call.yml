@@ -1,0 +1,27 @@
+name: On-Call Rotation Alert
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"  # Every Monday at 9:00 AM UTC
+  workflow_dispatch:  # Optional: lets you run it manually too
+
+jobs:
+  send-alert:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: pip install slack-sdk
+
+      - name: Run on-call script
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        run: python script.py
