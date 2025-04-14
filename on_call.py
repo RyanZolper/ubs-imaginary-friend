@@ -34,7 +34,7 @@ def send_on_call_alert():
 
     client = WebClient(token=SLACK_BOT_TOKEN)
     on_call = get_on_call_person()
-    message = f"🚨 *Weekly Monitoring Owner Alert!* 🚨\nThis week's owner of UBS backend alerts: {on_call['slack_id']}.\nPlease monitor all #gsp-brands-alerts and #gsp-brands-alerts-stage messages and create bug reports or escalations to the team, as needed."
+    message = f"🚨 *Weekly Monitoring Owner Alert!* 🚨\nThis week's owner of UBS backend alerts: {on_call['name']}({on_call['slack_id']}).\nPlease monitor all #gsp-brands-alerts and #gsp-brands-alerts-stage messages and create bug reports or escalations to the team, as needed."
 
     response = client.chat_postMessage(channel=CHANNEL_ID, text=message)
     print(f"Message sent: {response['ok']} (On-call: {on_call['name']})")
