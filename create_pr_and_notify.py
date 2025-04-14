@@ -26,7 +26,7 @@ def create_pull_request():
         "body": "This pull request was created automatically to sync changes from development to main.",
     }
 
-    response = requests.post(url, json=payload, headers=headers)
+    response = requests.post(url, json=payload, headers=headers, verify=False)
     if response.status_code == 201:
         pr_url = response.json()["html_url"]
         print("✅ PR created:", pr_url)
