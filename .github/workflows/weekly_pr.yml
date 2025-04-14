@@ -1,12 +1,12 @@
-name: On-Call Rotation Alert
+name: Weekly PR + Slack Notification
 
 on:
   schedule:
     - cron: "45 14 * * 1"  # 8:45am CST every Monday
-  workflow_dispatch:  # Optional: lets you run it manually too
+  workflow_dispatch:
 
 jobs:
-  send-alert:
+  weekly-update:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,12 +16,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: '3.9'
 
       - name: Install dependencies
-        run: pip install slack-sdk
+        run: pip install requests
 
-      - name: Run on-call script
+      - name: Run PR and Slack notifier
         env:
+          GH_ENTERPRISE_TOKEN: ${{ secrets.GH_ENTERPRISE_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        run: python on_call.py
+        run: python create_pr_and_notify.py
