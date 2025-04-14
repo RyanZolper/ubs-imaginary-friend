@@ -19,7 +19,6 @@ on_call_rotation = [
     {"name": "Priyam", "slack_id": "@ptejaswin"},
     {"name": "Shradha", "slack_id": "@shradagr"},
     {"name": "Sriram", "slack_id": "@sravindr"},
-    {"name": "Varsha", "slack_id": "@vsankar"},
 ]
 
 # Determine who is on-call this week based on ISO week number
