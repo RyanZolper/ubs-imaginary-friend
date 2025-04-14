@@ -4,7 +4,7 @@ import os
 
 # Get Slack Bot Token from environment variables (set in GitHub Secrets)
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
-CHANNEL_ID = "#on-call-alerts"  # Change to your channel
+CHANNEL_ID = "#xi-brand-squad"  # Change to your channel
 
 # Define the on-call rotation
 on_call_rotation = [
