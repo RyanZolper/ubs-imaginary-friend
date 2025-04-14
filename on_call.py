@@ -33,7 +33,38 @@ def send_on_call_alert():
 
     client = WebClient(token=SLACK_BOT_TOKEN)
     on_call = get_on_call_person()
-    message = f"🚨 *Weekly Monitoring Owner Alert!* 🚨\nThis week's owner of UBS backend alerts: {on_call['name']}({on_call['slack_id']}).\nPlease monitor all #gsp-brands-alerts and #gsp-brands-alerts-stage messages and create bug reports or escalations to the team, as needed."
+
+    message = f"""
+    *Weekly Monitoring Owner Alert!*
+    This week's owner of UBS backend alerts: {on_call['name']}({on_call['slack_id']}).
+
+    📣 Nightly Build Triage Instructions
+    Every day, please follow this checklist to stay on top of nightly failures:
+
+    🔍 1. Monitor for Failures
+    - Check for nightly build failure emails
+    - Watch for alerts in #gsp-brand-cicd-alerts Slack channel
+
+    🧪 2. Investigate All Failing Tests
+    - Review all failed test cases
+    - Identify the root cause for each failure
+
+    🛠️ 3. Take Action Based on Root Cause
+
+    ✅ Test Issue?
+    - Fix the test
+    - Create a PR with the fix
+
+    🐞 Bug in Brand Service?
+    - File a bug in the appropriate tracking system
+    - Inform the team via #xi-brand-squad or in standup
+
+    🌐 External Bug?
+    - Ensure a bug is filed with the owning team
+    - Escalate as needed if there’s no response or impact is critical
+
+    📆 Please make sure this is done every morning after the nightly runs complete. Consistency keeps the pipeline green! ✅
+    """
 
     response = client.chat_postMessage(channel=CHANNEL_ID, text=message)
     print(f"Message sent: {response['ok']} (On-call: {on_call['name']})")
