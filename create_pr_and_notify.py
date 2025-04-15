@@ -11,7 +11,7 @@ GITHUB_TOKEN = os.getenv("GH_ENTERPRISE_TOKEN")
 
 # === Slack Config ===
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
-SLACK_CHANNEL = "#xi-brand-squad"
+SLACK_CHANNEL = "#test-xi-slackbot"
 
 def create_pull_request():
     url = f"{GITHUB_API}/repos/{OWNER}/{REPO}/pulls"
