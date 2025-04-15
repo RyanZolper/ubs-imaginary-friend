@@ -26,6 +26,13 @@ def create_pull_request():
         "body": "This pull request was created automatically to sync changes from development to main.",
     }
 
+    # Debugging logs
+    print("=== Debugging Information ===")
+    print(f"API URL: {url}")
+    print(f"Headers: {headers}")
+    print(f"Payload: {payload}")
+    print("=============================")
+
     response = requests.post(url, json=payload, headers=headers, verify=False)
     if response.status_code == 201:
         pr_url = response.json()["html_url"]
