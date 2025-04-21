@@ -1,10 +1,12 @@
 from slack_sdk import WebClient
 from datetime import datetime
 import os
+import textwrap
 
 # Get Slack Bot Token from environment variables (set in GitHub Secrets)
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
-CHANNEL_ID = "#xi-brand-squad"  # Change to your channel
+# CHANNEL_ID = "#xi-brand-squad"  # Change to your channel
+CHANNEL_ID = "#test-xi-slackboat"  # test channel
 
 # Define the on-call rotation
 on_call_rotation = [
@@ -34,9 +36,9 @@ def send_on_call_alert():
     client = WebClient(token=SLACK_BOT_TOKEN)
     on_call = get_on_call_person()
 
-    message = f"""
+    message = textwrap.dedent(f"""
     *Weekly Monitoring Owner Alert!*
-    This week's owner of UBS backend alerts: {on_call['name']}({on_call['slack_id']}).
+    This week's owner of UBS backend alerts: {on_call['name']} ({on_call['slack_id']}).
 
     📣 Nightly Build Triage Instructions
     Every day, please follow this checklist to stay on top of nightly failures:
@@ -64,7 +66,7 @@ def send_on_call_alert():
     - Escalate as needed if there’s no response or impact is critical
 
     📆 Please make sure this is done every morning after the nightly runs complete. Consistency keeps the pipeline green! ✅
-    """
+    """)
 
     response = client.chat_postMessage(channel=CHANNEL_ID, text=message)
     print(f"Message sent: {response['ok']} (On-call: {on_call['name']})")
