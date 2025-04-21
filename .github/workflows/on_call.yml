@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: "45 14 * * 1"  # 8:45am CST every Monday
   workflow_dispatch:  # Optional: lets you run it manually too
- 
+
 jobs:
   send-alert:
     runs-on: ubuntu-latest
