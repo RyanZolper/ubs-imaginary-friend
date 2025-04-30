@@ -6,12 +6,11 @@ import textwrap
 # Get Slack Bot Token from environment variables (set in GitHub Secrets)
 SLACK_BOT_TOKEN = os.getenv("SLACK_BOT_TOKEN")
 CHANNEL_ID = "#xi-brand-squad"  # Change to your channel
-# CHANNEL_ID = "#test-xi-slackboat"  # test channel
+# CHANNEL_ID = "#test-xi-slackbot"  # test channel
 
 # Define the on-call rotation
 on_call_rotation = [
     {"name": "David", "slack_id": "@dhaecker"},
-    {"name": "Illia", "slack_id": "@igrybkov"},
     {"name": "Joan", "slack_id": "@johe"},
     {"name": "Kieu", "slack_id": "@kphan"},
     {"name": "Kristen", "slack_id": "@hiserote"},
@@ -19,8 +18,11 @@ on_call_rotation = [
     {"name": "Meghanath", "slack_id": "@yadagiri"},
     {"name": "Nirmal", "slack_id": "@nchidambaram"},
     {"name": "Priyam", "slack_id": "@ptejaswin"},
+    {"name": "Illia", "slack_id": "@igrybkov"},
     {"name": "Shradha", "slack_id": "@shradagr"},
-    {"name": "Sriram", "slack_id": "@sravindr"},
+    {"name": "Aashai", "slack_id": "@aavadhan"},
+    {"name": "Raghav", "slack_id": "@raghavk"},
+    {"name": "Vahid", "slack_id": "@vazizi"},
 ]
 
 # Determine who is on-call this week based on ISO week number
