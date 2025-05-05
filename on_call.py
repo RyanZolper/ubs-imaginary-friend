@@ -10,7 +10,6 @@ CHANNEL_ID = "#xi-brand-squad"  # Change to your channel
 
 # Define the on-call rotation
 on_call_rotation = [
-    {"name": "David", "slack_id": "@dhaecker"},
     {"name": "Joan", "slack_id": "@johe"},
     {"name": "Kieu", "slack_id": "@kphan"},
     {"name": "Kristen", "slack_id": "@hiserote"},
@@ -23,6 +22,7 @@ on_call_rotation = [
     {"name": "Aashai", "slack_id": "@aavadhan"},
     {"name": "Raghav", "slack_id": "@raghavk"},
     {"name": "Vahid", "slack_id": "@vazizi"},
+    {"name": "David", "slack_id": "@dhaecker"},
 ]
 
 # Determine who is on-call this week based on ISO week number
