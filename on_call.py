@@ -21,7 +21,6 @@ on_call_rotation = [
     {"name": "Shradha", "slack_id": "@shradagr"},
     {"name": "Aashai", "slack_id": "@aavadhan"},
     {"name": "Raghav", "slack_id": "@raghavk"},
-    {"name": "Vahid", "slack_id": "@vazizi"},
     {"name": "David", "slack_id": "@dhaecker"},
 ]
 
